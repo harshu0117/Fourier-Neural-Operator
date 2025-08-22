@@ -23,11 +23,8 @@ A PyTorch implementation and extension of **Fourier Neural Operators (FNOs)** to
 - **Strict train/test split** saved as:
   - `heat_trajectories_train_64.h5`
   - `heat_trajectories_test_64.h5`
-- **Universal diffusion**: thermal diffusivity \alpha \sim \mathcal{U}[0.01, 0.1]\.
-
-
-
-
+- **Universal diffusion**: thermal diffusivity α ~ U[0.01, 0.1].
+  
 ---
 
 ## 📦 Dataset & Generation
@@ -68,7 +65,7 @@ A PyTorch implementation and extension of **Fourier Neural Operators (FNOs)** to
 
 ### 2) Universal Autoregressive Solver
 
-- **Train**: 20,000 trajectories, \(\alpha \in [0.01, 0.1]\).  
+- **Train**: 20,000 trajectories, α ~ U[0.01, 0.1]).  
 - **Test**: 4,000 trajectories.  
 - **Final relative error:** **1.1479%** (over full rollouts).
 
