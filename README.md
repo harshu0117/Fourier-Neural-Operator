@@ -23,7 +23,10 @@ A PyTorch implementation and extension of **Fourier Neural Operators (FNOs)** to
 - **Strict train/test split** saved as:
   - `heat_trajectories_train_64.h5`
   - `heat_trajectories_test_64.h5`
-- **Universal diffusion**: thermal diffusivity \(\alpha \sim \mathcal{U}[0.01, 0.1]\).
+- **Universal diffusion**: thermal diffusivity \alpha \sim \mathcal{U}[0.01, 0.1]\.
+
+
+
 
 ---
 
@@ -32,7 +35,7 @@ A PyTorch implementation and extension of **Fourier Neural Operators (FNOs)** to
 - **Equation**: 2D heat equation with periodic boundary conditions.  
 - **Ground truth**: spectral method (minimizes numerical error vs finite differences).  
 - **ICs**: GRFs → smooth, random fields with varied spectra.  
-- **Files**: `heat_trajectories_train_64.h5`, `heat_trajectories_test_64.h5` (and optionally high-res test, e.g., 256×256).
+- **Files**: `heat_trajectories_train_64.h5`, `heat_trajectories_test_64.h5` (and optionally high-res test, e.g., 256×256), not present in the repo, but you can generate them using the code provided.
 
 > Each trajectory contains time-ordered snapshots suitable for autoregressive training.
 
@@ -67,7 +70,7 @@ A PyTorch implementation and extension of **Fourier Neural Operators (FNOs)** to
 
 - **Train**: 20,000 trajectories, \(\alpha \in [0.01, 0.1]\).  
 - **Test**: 4,000 trajectories.  
-- **Final relative error:** **1.15%** (over full rollouts).
+- **Final relative error:** **1.1479%** (over full rollouts).
 
 **Overview plot**
 
@@ -103,7 +106,7 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install torch numpy h5py matplotlib tqdm 
 ````
 
 ---
@@ -139,18 +142,11 @@ print("Train set:", X.shape, Y.shape)
 
 ---
 
-## 📁 Repo Structure (suggested)
+## 📁 Repo Structure
 
 ```
-.
-├─ data/
-│  ├─ heat_trajectories_train_64.h5
-│  └─ heat_trajectories_test_64.h5
-├─ notebooks/
-│  ├─ 2DHeat_FNO_alpha0.05.ipynb
-│  └─ 2dheat-family.ipynb
-├─ models/
-│  └─ fno2d.py
+├─ 2DHeat_FNO_alpha0.05.ipynb
+├─ 2dheat-family.ipynb
 ├─ res1a.png
 ├─ res1b.png
 ├─ res2.png
